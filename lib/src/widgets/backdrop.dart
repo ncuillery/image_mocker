@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:image_mocker/src/data.dart';
 
@@ -17,7 +18,12 @@ class Backdrop extends StatelessWidget {
       clipBehavior: Clip.antiAlias,
       child: AspectRatio(
         aspectRatio: 4 / 3,
-        child: Image.network(placeholderService.pictureUrl),
+        child: CachedNetworkImage(
+          imageUrl: placeholderService.pictureUrl,
+          placeholder: (_, __) => Container(
+            color: Colors.grey[200],
+          ),
+        ),
       ),
     );
   }

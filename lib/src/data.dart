@@ -26,7 +26,7 @@ const placeholderServices = [
     description:
         'Use the Internet first-class citizens as placeholders for your Website.',
     url: 'https://placekitten.com',
-    pictureUrl: 'https://placekitten.com/1200/900',
+    pictureUrl: 'https://placekitten.com/1024/768',
     tags: ['Fun', 'Grayscale'],
   ),
   PlaceholderService(
