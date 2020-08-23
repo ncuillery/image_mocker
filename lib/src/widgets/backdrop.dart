@@ -1,5 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_cache_manager/flutter_cache_manager.dart';
+import 'package:get_it/get_it.dart';
 import 'package:image_mocker/src/data.dart';
 
 class Backdrop extends StatelessWidget {
@@ -20,6 +22,7 @@ class Backdrop extends StatelessWidget {
         aspectRatio: 4 / 3,
         child: CachedNetworkImage(
           imageUrl: placeholderService.pictureUrl,
+          cacheManager: GetIt.instance.get<BaseCacheManager>(),
           placeholder: (_, __) => Container(
             color: Colors.grey[200],
           ),
