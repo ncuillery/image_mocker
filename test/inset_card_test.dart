@@ -7,6 +7,7 @@ import 'package:get_it/get_it.dart';
 import 'package:image_mocker/src/data.dart';
 import 'package:image_mocker/src/widgets/inset_card.dart';
 
+import 'golden_testing_utils.dart';
 import 'test_cache_manager.dart';
 
 const testService = PlaceholderService(
@@ -23,7 +24,13 @@ void main() {
     TestCacheManager(),
   );
 
+  setUpAll(() async {
+    await loadFonts();
+  });
+
   testWidgets('InsetCard renders correctly', (WidgetTester tester) async {
+    await configureScreenSize(tester);
+
     await tester.runAsync(() async {
       await tester.pumpWidget(
         MaterialApp(
@@ -34,6 +41,8 @@ void main() {
         ),
       );
     });
+
+    await tester.pumpAndSettle();
 
     await expectLater(
       find.byType(InsetCard),
