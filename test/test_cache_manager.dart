@@ -32,9 +32,9 @@ class TestCacheManager extends BaseCacheManager {
   @override
   Stream<FileResponse> getFileStream(String url,
       {Map<String, String> headers, bool withProgress}) async* {
-    if (url == 'https://myownservice.com/example') {
+    if (url == 'https://placekitten.com/1024/768') {
       yield FileInfo(
-        File(_fixPath('test/assets/backdrop.jpg')),
+        File(_fixPath('test/assets/768.jpg')),
         FileSource.Cache,
         DateTime(2050),
         url,

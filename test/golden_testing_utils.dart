@@ -5,7 +5,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 Future<void> configureScreenSize(WidgetTester tester) async {
-  final size = Size(414.0, 896.0);
+  final size = Size(414.0, 420.0);
   await tester.binding.setSurfaceSize(size);
   tester.binding.window.physicalSizeTestValue = size;
   tester.binding.window.devicePixelRatioTestValue = 1;
@@ -32,5 +32,9 @@ Future<void> loadFonts() async {
   await _loadFont(
     'Roboto',
     'test/assets/Roboto-Regular.ttf',
+  );
+  await _loadFont(
+    'RobotoBold',
+    'test/assets/Roboto/Roboto-Bold.ttf',
   );
 }
