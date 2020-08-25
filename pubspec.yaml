@@ -24,7 +24,7 @@ dependencies:
   flutter:
     sdk: flutter
 
-  cached_network_image: ^2.2.0+1
+  cached_network_image: ^2.3.0
   flutter_cache_manager: ^1.4.1
   get_it: ^4.0.4
   url_launcher: ^5.5.0
