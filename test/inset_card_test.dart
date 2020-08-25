@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_cache_manager/flutter_cache_manager.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -40,9 +38,19 @@ void main() {
           ),
         ),
       );
-    });
 
-    await tester.pumpAndSettle();
+      // Allow CachedNetworkImage to mount the Image widget in reaction
+      // to the File Stream event.
+      await tester.pump();
+
+      // Preload the image.
+      final element = tester.element(find.byType(Image));
+      final Image widget = element.widget;
+      await precacheImage(widget.image, element);
+
+      // Finally pump a new frame to display the image
+      await tester.pumpAndSettle();
+    });
 
     await expectLater(
       find.byType(InsetCard),
